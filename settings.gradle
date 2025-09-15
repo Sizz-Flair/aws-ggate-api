@@ -1,0 +1,19 @@
+rootProject.name = 'logs'
+
+include(
+    ":web:admin",
+    ":kafka:producer",
+    ":kafka:consumer",
+    ":infra:mysql:user_db",
+    ":infra:mysql:addr_test_db",
+    ":infra:mysql:ggate",
+    ":infra:mysql:jooq-config",
+    ":infra:elastic",
+    ":kafka:avro-model",
+)
+
+include 'infra:mysql:db-jooq'
+findProject(':infra:mysql:db-jooq')?.name = 'db-jooq'
+
+//findProject(':infra:mysql:jooq-config')?.name = 'jooq-config'
+

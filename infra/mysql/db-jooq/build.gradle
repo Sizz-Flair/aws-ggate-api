@@ -1,0 +1,67 @@
+plugins {
+    id 'java'
+    id 'nu.studer.jooq' version '9.0'
+}
+
+group = 'com.sms'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir("$buildDir/generated-src/jooq/main/java")
+        }
+    }
+}
+jooq {
+    version = '3.20.5'
+    configurations {
+        main {
+            generateSchemaSourceOnCompilation = false
+
+            generationTool {
+                jdbc {
+                    driver = 'org.mariadb.jdbc.Driver'
+                    url = 'jdbc:mariadb://210.111.194.100:3306/giant'
+                    user = 'root'
+                    password = 'GiantAd^^$'
+                }
+                generator {
+                    name = 'org.jooq.codegen.DefaultGenerator'
+                    generate{
+                        pojos = true
+                        pojosAsJavaRecordClasses = true
+                        records = true
+                    }
+                    database {
+                        name = 'org.jooq.meta.mysql.MySQLDatabase'
+                        inputSchema = 'giant'
+                        recordVersionFields = 'version'
+                    }
+                    strategy {
+                        name = 'com.sms.CustomGeneratorStrategy'
+                    }
+                    target {
+                        packageName = 'com.example.jooq.generated'
+                        //directory = "$buildDir/generated-src/jooq"
+                        directory = "$buildDir/generated-src/jooq/main/java"
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+dependencies {
+    jooqGenerator project(":infra:mysql:jooq-config")
+    implementation "org.jooq:jooq-codegen:3.20.5"
+
+    jooqGenerator "org.jooq:jooq-codegen:3.20.5"   // 👈 코드 생성기도 동일 버전
+    jooqGenerator "org.jooq:jooq-meta:3.20.5"
+    jooqGenerator 'org.mariadb.jdbc:mariadb-java-client:3.3.3'  // 최신 안정 버전
+}
