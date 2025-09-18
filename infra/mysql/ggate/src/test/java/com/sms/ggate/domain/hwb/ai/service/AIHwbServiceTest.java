@@ -67,7 +67,7 @@ class AIHwbServiceTest {
                     .build());
 
             if(batch.size() % 1000 == 0) {
-                aiHwbService.saveBatch(batch);
+                aiHwbService.saveBatchAndReturn(batch);
                 batch.clear();
             }
         }

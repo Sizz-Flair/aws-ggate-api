@@ -13,5 +13,4 @@ public class DocNoCJService {
     public String getInvoiceNumber() {
         return repo.getCJInvoiceNumber();
     }
-
 }

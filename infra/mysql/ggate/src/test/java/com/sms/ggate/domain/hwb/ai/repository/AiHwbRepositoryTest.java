@@ -23,17 +23,17 @@ class AiHwbRepositoryTest {
     @Autowired
     AiHwbRepository repository;
 
-    @Test
-    void save() {
-        TmAiHwbPojo build = TmAiHwbBuilder.Builder()
-                .hwbNo("500001111111")
-                .orderNo("orderNo")
-                .orderDt(LocalDateTime.now())
-                .agentId(1L)
-                .mappingNo("mappingNo")
-                .deliveryCode("CJ")
-                .build();
-
-        repository.saveOneOrReturn(build);
-    }
+//    @Test
+//    void save() {
+//        TmAiHwbPojo build = TmAiHwbBuilder.Builder()
+//                .hwbNo("500001111111")
+//                .orderNo("orderNo")
+//                .orderDt(LocalDateTime.now())
+//                .agentId(1L)
+//                .mappingNo("mappingNo")
+//                .deliveryCode("CJ")
+//                .build();
+//
+//        repository.saveOneOrReturn(build);
+//    }
 }

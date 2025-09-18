@@ -5,9 +5,10 @@ import lombok.Builder;
 @Builder
 public record OrderGoods(
         String nameEng,
-        String qtyUnit,
+        String nameExp,
         String priceUsd,
         String standard,
-        Integer qty
+        Integer qty,
+        String qtyUnit
 ) {
 }

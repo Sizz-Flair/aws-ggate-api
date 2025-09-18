@@ -15,7 +15,7 @@ public class AiHwbService {
     private final AiHwbRepository repository;
 
     @Transactional
-    public void saveBatch(List<TmAiHwbPojo> tmAiHwbList) {
-        repository.saveBatch(tmAiHwbList);
+    public List<TmAiHwbPojo> saveBatchAndReturn(List<TmAiHwbPojo> tmAiHwbList) {
+        return repository.saveBatchAndReturn(tmAiHwbList);
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
 @RestControllerAdvice
 public class ControllerAdvice {
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<List<String>> illegalArgumentException(IllegalArgumentException e) {
-    }
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    public ResponseEntity<List<String>> illegalArgumentException(IllegalArgumentException e) {
+//    }
 }

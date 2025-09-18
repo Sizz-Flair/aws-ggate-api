@@ -35,12 +35,22 @@ public class AiHwbRepository extends BaseRepository<TmAiHwbRecord> {
         return record.into(TmAiHwbPojo.class);
     }
 
-    public void saveBatch(final List<TmAiHwbPojo> tmAiHwbList) {
+    /**
+     * MariaDB Returnning v10.5부터 지원하여 저장 후 다시 조회 방식으로
+     * @param tmAiHwbList
+     */
+    public List<TmAiHwbPojo> saveBatchAndReturn(final List<TmAiHwbPojo> tmAiHwbList) {
         List<TmAiHwbRecord> records = tmAiHwbList.stream()
                 .map(v -> dsl.newRecord(TM_AI_HWB, v))
                 .toList();
 
         dsl.batchInsert(records)
                 .execute();
+
+        List<String> list = records.stream().map(TmAiHwbRecord::getHwbNo).toList();
+
+        return dsl.selectFrom(TM_AI_HWB)
+                .where(TM_AI_HWB.HWB_NO.in(list))
+                .fetchInto(TmAiHwbPojo.class);
     }
 }

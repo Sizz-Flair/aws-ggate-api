@@ -1,0 +1,32 @@
+spring:
+  flyway:
+    enabled: false
+
+  application:
+    name: ggate
+
+  datasource:
+    url: jdbc:mariadb://210.111.194.100:3306/giant
+    username: root
+    password: GiantAd^^$
+    driver-class-name: org.mariadb.jdbc.Driver
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      pool-name: user-db-pool
+      data-source-properties:
+        rewriteBatchedStatements: true
+
+  jooq:
+    sql-dialect: mariadb
+
+
+#logging:
+#  level:
+#    org.jooq.tools.LoggerListener: DEBUG
+#    org.jooq.tools: DEBUG
+#  flyway:
+#    baseline-on-migrate: true

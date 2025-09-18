@@ -1,6 +1,6 @@
 package com.sms.ggateapi.validations.validator.addr;
 
-import com.sms.ggateapi.domain.post.DeliveryService;
+import com.sms.ggateapi.domain.delivery.DeliveryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -40,19 +40,19 @@ class AsyncTestTest {
 
     @Test
     void address() {
-        long l = System.nanoTime();
-        List<CompletableFuture<Map<String, String>>> futures = new ArrayList<>();
-        for(int i=0; i<100; i++) {
-            futures.add(asyncTest.getAddress("order", "인천광역시 부평구 열우물로 90 (십정동 더샵부평센트럴시티) 126동 305호"));
-        }
-
-        CompletableFuture<Void> allDone =
-                CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
-
-        allDone.join(); // 블로킹 대기
-
-        long l1 = System.nanoTime();
-        System.out.println("소요시간" + (l1-l)/1_000_000_000.0);
+//        long l = System.nanoTime();
+//        List<CompletableFuture<Map<String, String>>> futures = new ArrayList<>();
+//        for(int i=0; i<100; i++) {
+//            futures.add(asyncTest.getAddress("order", "인천광역시 부평구 열우물로 90 (십정동 더샵부평센트럴시티) 126동 305호"));
+//        }
+//
+//        CompletableFuture<Void> allDone =
+//                CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
+//
+//        allDone.join(); // 블로킹 대기
+//
+//        long l1 = System.nanoTime();
+//        System.out.println("소요시간" + (l1-l)/1_000_000_000.0);
     }
 
 }

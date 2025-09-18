@@ -1,0 +1,11 @@
+.gradle
+.idea
+build
+app.*
+ggate-api/out
+ggate-api/gradle
+gradlew
+gradlew.bat
+logs
+gradle
+

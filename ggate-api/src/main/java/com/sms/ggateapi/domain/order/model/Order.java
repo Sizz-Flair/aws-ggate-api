@@ -1,5 +1,6 @@
 package com.sms.ggateapi.domain.order.model;
 
+import com.sms.ggateapi.domain.order.dto.OrderDt;
 import lombok.Builder;
 
 import java.util.List;
@@ -21,8 +22,15 @@ public record Order(
         String consigneeNameImp,     // Consignee name
         String consigneeAddressImp,  // Consignee address
         String consigneeTel,         // Consignee number
+        String consigneeZip,
         String siteHttpUrl,          // E-commerce site address
-        String orderDt,              // Order date
+        OrderDt orderDt,              // Order date
+        String shipperNameExp,
+        String shipperTel,
+        String shipperZip,
+        String shipperAddressExp,
+        String shipperPlace,
+        String passAddress,
         List<OrderGoods> goodsList             // Product information list
 ) {
 }
